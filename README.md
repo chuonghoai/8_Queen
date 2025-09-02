@@ -1,4 +1,4 @@
-# Nhóm NBC: bàn cờ 8 quân hậu
+# Nhóm NBC: trò chơi 8 quân hậu
 
 1.  Họ Tên: Nguyễn Thái Bình              
     MSSV:   23110080
@@ -12,4 +12,4 @@
 Lớp: ARIN330585_05CLC
 Buổi: Sáng thứ 2 - thứ 6, tiết 1 - 4
 
-Bài tập lập trình bàn cờ 8 quân hậu
+Bài tập lập trình trò chơi 8 quân hậu
