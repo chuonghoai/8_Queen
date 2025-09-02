@@ -6,7 +6,14 @@ class eight_queen:
         self.root = root
         self.root.title("8 queen")
         self.root.config(bg="lightgray")
-        self.pos_queen = []
+        self.pos_queen =   [[1, 0, 0, 0, 0, 0, 0, 0],
+                            [0, 0, 1, 0, 0, 0, 0, 0],
+                            [0, 0, 0, 0, 1, 0, 0, 0],
+                            [0, 0, 0, 0, 0, 0, 1, 0],
+                            [0, 1, 0, 0, 0, 0, 0, 0],
+                            [0, 0, 0, 1, 0, 0, 0, 0],
+                            [0, 0, 0, 0, 0, 1, 0, 0],
+                            [0, 0, 0, 0, 0, 0, 0, 1]]
 
         frame_left = tk.Frame(self.root, bg="lightgray", relief="solid", borderwidth=1)
         frame_left.grid(row=0, column=0, padx=10, pady=10)
@@ -27,13 +34,12 @@ class eight_queen:
     def create_widget(self, frame, draw_queen):
         buttons = []
         img_null = tk.PhotoImage(width=1, height=1)
-        
         for i in range(8):
             row = []
             for j in range(8):
                 color = "white" if (i + j) % 2 == 0 else "black"
                 queen = self.whiteQ if color == "black" else self.blackQ
-                if draw_queen:
+                if draw_queen and self.pos_queen[i][j] == 1:
                     btn = tk.Button(frame, image=queen, width=60, height=60, bg=color,
                                 relief="flat", borderwidth=0, highlightthickness=0)
                 else:
