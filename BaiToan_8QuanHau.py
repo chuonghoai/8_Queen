@@ -1,12 +1,14 @@
-n = 8
+import random
+
+def print_board(board):
+    for i in board:
+        print(i)
 
 def safe(board, row, col):
-    # kiểm tra cột
     for i in range(row):
         if board[i][col] == 1:
             return False
 
-    # kiểm tra chéo trên trái
     i, j = row, col
     while i >= 0 and j >= 0:
         if board[i][j] == 1:
@@ -14,32 +16,30 @@ def safe(board, row, col):
         i -= 1
         j -= 1
     
-    # kiểm tra chéo trên phải
     i, j = row, col
     while i >= 0 and j < n:
         if board[i][j] == 1:
             return False
         i -= 1
         j += 1
-
     return True
-
 
 def set_queen(board, row):
     if row == n:
-        for r in board:
-            print(r)
-        return True   # ✅ báo là đã tìm thấy nghiệm
-
-    for col in range(n):
+        print_board(board)
+        return True
+    
+    for col in random.sample(range(n), n):
         if safe(board, row, col):
             board[row][col] = 1
-            if set_queen(board, row + 1):   # ✅ nếu đã tìm nghiệm thì dừng
+            if set_queen(board, row + 1):
                 return True
             board[row][col] = 0
     return False
 
-
+n = 8
 if __name__ == "__main__":
-    board = [[0] * n for _ in range(n)]
-    set_queen(board, 0)
+    while True:
+        board = [[0] * n for _ in range(n)]
+        if set_queen(board, 0):
+            break
