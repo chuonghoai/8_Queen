@@ -80,7 +80,7 @@ class eight_queen:
         setted = 1
         
         #Bắt đầu bfs
-        while q and setted < 8:
+        while q and setted < self.n:
             #Lấy tọa độ của quân xe đầu tiên trong queue
             x, y = q.popleft()
             #Từ tọa độ đã lấy di chuyển xung quanh ra 4 phía 
@@ -94,7 +94,7 @@ class eight_queen:
                     #nếu an toàn thì đánh dấu đặt xe và đánh dấu số quân xe đã đặt tăng lên 1
                     xa_pos[x_next][y_next] = 1
                     setted += 1
-                    if setted == 8:
+                    if setted == self.n:
                         break
     
 if __name__ == "__main__":
